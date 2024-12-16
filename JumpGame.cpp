@@ -4,8 +4,6 @@
 
 // Return true if you can reach the last index, or false otherwise.
 
- 
-
 // Example 1:
 
 // Input: nums = [2,3,1,1,4]
@@ -17,7 +15,6 @@
 // Output: false
 // Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
  
-
 // Constraints:
 
 // 1 <= nums.length <= 104
@@ -26,26 +23,25 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-bool canJump(vector<int>& nums) {
+bool canJump(vector<int>& arr) {
     int jump = 0;
-    int n = nums.size();
+    int n = arr.size();
 
     for (int i = 0; i < n; i++) {
         if (jump < 0) return false;
-        jump = max(jump, nums[i]) - 1;
+        jump = max(jump, arr[i]) - 1;
     }
     return true;
 }
-
 int main() {
     int n;
     cin>>n;
 
-    vector<int> nums(n);
+    vector<int> arr(n);
 
-    for (int i = 0; i < n; i++) cin >> nums[i];
+    for (int i = 0; i < n; i++) cin >> arr[i];
 
-    if (canJump(nums)) cout << "T";
+    if (canJump(arr)) cout << "T";
     else cout << "F";
     return 0;
 }
